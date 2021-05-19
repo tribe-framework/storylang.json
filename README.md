@@ -33,6 +33,9 @@ x-axis thumb movement. swiping left or right can be:
 - it could have a custom transition on swipe.
 
 ### line-angle
+
+## Storyboard
+A single layout, with a single defined purpose. Goes from 0% scroll to 100% (or infinite, in the case of endless scrolling pages). Could also go to -100% or minus-infinity while scrolling upwards. There are 4 types of storyboards, as explained below.
 you can angle your story-line or swipe-line to experiment with user experience.
 
 ## address
