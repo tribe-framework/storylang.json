@@ -1,5 +1,5 @@
 # Story-lang
-Used for storyboard-ing user experiences, Story-lang is a verbal and notation language with an addressing scheme. Like any visual or verbal language, it is a framework to imagine, annotate and communicate. It also brings precision and clarity to the collaborative process, among people involved in UX, design, front-end and back-end work.
+Used for storyboard-ing user experiences, Story-lang is a verbal and notation language with an addressing scheme. Like any visual or verbal language, it is a framework to imagine, annotate and communicate. It also brings precision and clarity to the collaborative process for people involved in UX design and front-end development.
 <br><br>
 Story-lang is JSON-compatible.
 <br><br>
