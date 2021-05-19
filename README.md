@@ -1,6 +1,7 @@
-# story-lang
-a language for visual interface design for story-boarding user experiences.
+# Story-lang
+A json compatible verbal language and addressing scheme for visual interface design for storyboard-ing user experiences. The language has been designed to bring more precision and clarity to interactions among people involved in UX, design, front-end and back-end work.
 
+<hr>
 
 ## storyboard
 a single layout, with a single defined purpose. goes from 0% scroll to 100% (or infinite, in the case of endless scrolling pages). could also go to -100% or minus-infinity.
