@@ -1,8 +1,8 @@
 # Story-lang
-Used for storyboard-ing user experiences, Story-lang is verbal and notation language with an addressing scheme. It is a JSON compatible. The language has been designed to bring more precision and clarity to interactions among people involved in UX, design, front-end and back-end work.
+Used for storyboard-ing user experiences, Story-lang is a verbal and notation language with an addressing scheme. It is a JSON compatible. The language has been designed to bring more precision and clarity to interactions among people involved in UX, design, front-end and back-end work.
 
-Inspiration to create this was drawn from music notations.
-![Story-lang notations](https://wildfiretech.co/theme/assets/img/bach-notes.png)
+Inspiration to create this was drawn from music notations.<br>
+![Story-lang notations](https://wildfiretech.co/theme/assets/img/bach-notes.png)<br>
 <em>Above: Hand-written musical notation by J. S. Bach (1685–1750).</em>
 
 <hr>
