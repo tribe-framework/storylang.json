@@ -24,7 +24,9 @@ A single layout, with a single defined purpose. Goes from 0% scroll to 100% (or 
 - Single or multi-type listing of objects.
 - Naming scheme: use name <em>search</em> for overall search, and search-&lt;content-type&gt; for type-based search layout.
 
-#### Index - an entirely customised experience, might have hard-coded components. usually home page or landing pages. naming scheme: index or index-&lt;url-slug&gt;.
+#### Index
+- An entirely curated experience, might have hard-coded components. Usually home page or landing pages.
+- Naming scheme: use name <em>index</em> or index-&lt;url-slug&gt;.
 
 <hr>
 
