@@ -12,21 +12,21 @@ Inspiration to create this was drawn from music notations.<br>
 ## Storyboard
 A single layout, with a single defined purpose. Goes from 0% scroll to 100% (or infinite, in the case of endless scrolling pages). Could also go to -100% or minus-infinity while scrolling upwards. There are 4 types of storyboards, as explained below.
 
-#### Single
+#### 1. Single
 - A single object, defined by a single model object.
-- Naming scheme: &lt;content-type&gt;-&lt;url-slug.
+- Naming scheme: <em>&lt;content-type&gt;-&lt;url-slug&gt;</em>
 
-#### Archive
+#### 2. Archive
 - Listing objects within the same type.
-- Naming scheme: archive-&lt;content-type.
+- Naming scheme: <em>archive-&lt;content-type&gt;</em>
 
-#### Search
+#### 3. Search
 - Single or multi-type listing of objects.
-- Naming scheme: use name <em>search</em> for overall search, and search-&lt;content-type&gt; for type-based search layout.
+- Naming scheme: use name <em>search</em> for overall search, and <em>search-&lt;content-type&gt;</em> for type-based search layout.
 
-#### Index
+#### 4. Index
 - An entirely curated experience, might have hard-coded components. Usually home page or landing pages.
-- Naming scheme: use name <em>index</em> or index-&lt;url-slug&gt;.
+- Naming scheme: use name <em>index</em> or <em>index-&lt;url-slug&gt;</em>
 
 <hr>
 
