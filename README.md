@@ -7,38 +7,49 @@ Inspiration to create this was drawn from music notations.<br>
 
 <hr>
 
-## storyboard
-a single layout, with a single defined purpose. goes from 0% scroll to 100% (or infinite, in the case of endless scrolling pages). could also go to -100% or minus-infinity.
-<br>
-it's data is defined by a single model object.
-<br>
-there are 4 types of storyboards:
-- single - a single object. naming scheme: &lt;content-type&gt;-&lt;url-slug.
-- archive - listing objects within the same type. naming scheme: archive-&lt;content-type.
-- search - single or multi-type listing of objects. naming scheme: search.
-- index - an entirely customised experience, might have hard-coded components. usually home page or landing pages. naming scheme: index or index-&lt;url-slug&gt;.
-
-## movement
-
-### story-line
-y-axis thumb movement. scrolling up or down can be:
-- continuous type, that has a base scroll speed.
-- can be snapped to fit one full frame per scroll up or down.
-- it could have a custom transition on scroll up or down.
-
-### swipe-line
-x-axis thumb movement. swiping left or right can be:
-- csnapped to fit one full frame per swipe, like a slideshow.
-- continuous type, that has a base scroll speed.
-- it could have a custom transition on swipe.
-
-### line-angle
+# Terminology
 
 ## Storyboard
 A single layout, with a single defined purpose. Goes from 0% scroll to 100% (or infinite, in the case of endless scrolling pages). Could also go to -100% or minus-infinity while scrolling upwards. There are 4 types of storyboards, as explained below.
+
+#### Single
+- A single object, defined by a single model object.
+- Naming scheme: &lt;content-type&gt;-&lt;url-slug.
+
+#### Archive
+- Listing objects within the same type.
+- Naming scheme: archive-&lt;content-type.
+
+#### Search
+- Single or multi-type listing of objects.
+- Naming scheme: use name <em>search</em> for overall search, and search-&lt;content-type&gt; for type-based search layout.
+
+#### Index - an entirely customised experience, might have hard-coded components. usually home page or landing pages. naming scheme: index or index-&lt;url-slug&gt;.
+
+<hr>
+
+## Movement
+
+#### Story-line
+Y-axis thumb movement. Scrolling up or down can be:
+- Continuous type, that has a base scroll speed.
+- Snap-to-fit one full frame or component per scroll up or down.
+- It could have a custom transition on scroll up or down.
+
+#### Swipe-line
+X-axis thumb movement. Swiping left or right can be:
+- Snap-to-fit one full frame or component per swipe, like a slideshow.
+- Continuous type, that has a base scroll speed.
+- It could have a custom transition on swipe.
+- Naming scheme: Bx for base speed, Bx:0.5
+- Bx means Base speed on X-axis.
+
+#### Line-angle
 you can angle your story-line or swipe-line to experiment with user experience.
 
-## address
+<hr>
+
+## Addressing
 
 ### frame
 whatever is in one viewport, 100% height and 100% width. in css terms - 100vh and 100vw.
