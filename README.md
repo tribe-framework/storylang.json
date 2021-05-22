@@ -1,5 +1,5 @@
 # Story-lang
-Used for storyboard-ing user experiences, Story-lang is a verbal and notation language with an addressing scheme. Like any spoken or sign language, it is a framework to imagine, annotate and communicate. It also brings precision and clarity to the collaborative process for people involved in UX design and front-end development.
+Used for storyboarding user experiences, Story-lang is a verbal and notation language with an addressing scheme. Like any spoken or sign language, it is a framework to imagine, annotate and communicate. It also brings precision and clarity to the collaborative process for people involved in UX design and front-end development.
 <br><br>
 Story-lang is JSON-compatible.
 <br><br>
@@ -13,23 +13,31 @@ Inspiration to create this was drawn from music notations.<br><br>
 # Terminology
 
 ## Storyboard
-A single layout, with a single defined purpose. Goes from 0% scroll to 100% (or infinite, in the case of endless scrolling pages). Could also go to -100% or minus-infinity while scrolling upwards. There are 4 types of storyboards, as explained below.
+A single layout, with a single defined purpose. Scroll (y-axis) or swipe (x-axis) from 0% to 100% (or infinite, in the case of endless scrolling pages). Could also go to -100% or minus-infinity while scrolling upwards or swiping left.
+
+![Storyboard layout](https://wildfiretech.co/uploads/2021/05-May/22-Sat/sm/IMG_20210522_121003.jpg)<br>
+
+There are 4 types of storyboards, as explained below.
 
 #### 1. Single
-- A single object, defined by a single model object.
-- Naming scheme: <em>&lt;content-type&gt;-&lt;url-slug&gt;</em>
+- A single object, usually defined by a single data model object.
+- File naming scheme: <em>&lt;content-type&gt;-&lt;url-slug&gt;</em>
+- Example name: <u>page</u>-<u>about-us</u>
 
 #### 2. Archive
 - Listing objects within the same type.
-- Naming scheme: <em>archive-&lt;content-type&gt;</em>
+- File naming scheme: <em>archive-&lt;content-type&gt;</em>
+- Example name: for listing book titles use: <u>archive</u>-<u>book</u>
 
 #### 3. Search
 - Single or multi-type listing of objects.
-- Naming scheme: use name <em>search</em> for overall search, and <em>search-&lt;content-type&gt;</em> for type-based search layout.
+- File naming scheme: use name <em>search</em> for overall search, and <em>search-&lt;content-type&gt;</em> for type-based search layout.
+- Example name: <u>search</u> or for only searching through videos use: <u>search</u>-<u>video</u>
 
 #### 4. Index
 - An entirely curated experience, might have hard-coded components. Usually home page or landing pages.
-- Naming scheme: use name <em>index</em> or <em>index-&lt;url-slug&gt;</em>
+- File naming scheme: use name <em>index</em> or <em>index-&lt;url-slug&gt;</em>
+- Example name: <u>index</u> or for a campaign specific landing page: <u>index</u>-<u>act-now</u>
 
 <hr>
 
