@@ -1,110 +1,289 @@
-# Story-lang
-Used for storyboarding user experiences, Story-lang is a verbal and notation language with an addressing scheme. Like any spoken or sign language, it is a framework to imagine, annotate and communicate. It also brings precision and clarity to the collaborative process for people involved in UX design and front-end development.
-<br><br>
-Story-lang is JSON-compatible.
-<br><br>
+# What is Storylang?
+
+Storylang is a language that can be used for storyboarding user experiences. It brings precision and clarity to the collaborative process for people involved in UX design and frontend development.
+
+Storylang is JSON-compatible.
+
+Long-term goal: Storylang must evolve into a written script notation framework that can help imagine, annotate and communicate.
+
 Inspiration to create this was drawn from music notations.<br><br>
 
-![Story-lang notations](https://wildfiretech.co/theme/assets/img/bach-notes.png)<br>
+![Storylang notations](https://wildfiretech.co/theme/assets/img/bach-notes.png)<br>
 <em>Above: Hand-written musical notation by J. S. Bach (1685–1750).</em>
 
-<hr>
+# Storylang.json Documentation
 
-# Terminology
+## Overview
 
-## Storyboard
-A single layout, with a single defined purpose. Scroll (y-axis) or swipe (x-axis) from 0% to 100% (or infinite, in the case of endless scrolling pages). Could also go to -100% or minus-infinity while scrolling upwards or swiping left.
+Storylang.json is a structured configuration file used in the ember-tribe ecosystem to define the frontend implementation of your application. It works in conjunction with your `simplified-types.json` (which defines your data models) and `navigator.json` (which defines user flows and navigation) to create a complete frontend specification.
 
-![Storyboard layout](https://wildfiretech.co/uploads/2021/05-May/22-Sat/sm/IMG_20210522_121003.jpg)<br>
+## Purpose
 
-There are 4 types of storyboards, as explained below.
+The storylang.json file serves as a blueprint for frontend developers to understand:
 
-#### 1. Single
-- A single object, usually defined by a single data model object.
-- File naming scheme: <em>&lt;content-type&gt;-&lt;url-slug&gt;</em>
-- Example name: <u>page</u>-<u>about-us</u>
+- What routes, components and services are required
+- How data flows through the application
 
-#### 2. Archive
-- Listing objects within the same type.
-- File naming scheme: <em>archive-&lt;content-type&gt;</em>
-- Example name: for listing book titles use: <u>archive</u>-<u>book</u>
+## File Structure
 
-#### 3. Search
-- Single or multi-type listing of objects.
-- File naming scheme: use name <em>search</em> for overall search, and <em>search-&lt;content-type&gt;</em> for type-based search layout.
-- Example name: <u>search</u> or for only searching through videos use: <u>search</u>-<u>video</u>
+The storylang.json file contains four main sections:
 
-#### 4. Index
-- An entirely curated experience, might have hard-coded components. Usually home page or landing pages.
-- File naming scheme: use name <em>index</em> or <em>index-&lt;url-slug&gt;</em>
-- Example name: <u>index</u> or for a campaign specific landing page: <u>index</u>-<u>act-now</u>
+```json
+{
+  "implementation_approach": "...",
+  "components": [...],
+  "routes": [...],
+  "services": [...]
+}
+```
 
-<hr>
+## Section Definitions
 
-## Movement
+### 1. Implementation Approach
 
-#### Story-line
-Y-axis thumb movement. Scrolling up or down can be:
-- Continuous type, that has a base scroll speed.
-- Snap-to-fit one full frame or component per scroll up or down.
-- It could have a custom transition on scroll up or down.
+**Purpose**: Provides a high-level technical overview of how the frontend interface would work.
 
-#### Swipe-line
-X-axis thumb movement. Swiping left or right can be:
-- Snap-to-fit one full frame or component per swipe, like a slideshow.
-- Continuous type, that has a base scroll speed.
-- It could have a custom transition on swipe.
-- Naming scheme: Bx for base speed, Bx:0.5
-- Bx means Base speed on X-axis.
+**Format**:
 
-#### Line-angle
-you can angle your story-line or swipe-line to experiment with user experience.
+```json
+{
+	"implementation_approach": "Two-paragraph description explaining technical approach and key functionality."
+}
+```
 
-<hr>
+### 2. Components
 
-## Addressing
+**Purpose**: Defines reusable UI components that will be built for the application.
 
-### frame
-whatever is in one viewport, 100% height and 100% width. in css terms - 100vh and 100vw.
-<br>
-addressing scheme: F0, F1, F2 and so on downwards. to go upwards, use rF1, rF2 and so on upwards. F0 and rF0 lead to the same central frame.
+**Format**:
 
-### thread
-frames are placed one below the other, tied to a thread.<br>
-you can place multiple threads one behind the other.<br>
-when you scroll down, each thread can have a different scroll speed.<br>
-<br>
-addressing scheme: T0, T1, T2 and so on, going deeper into the Z axis. rT1, rT2 and so on, can be used for layering on top of the base thread T0.
+```json
+{
+	"components": [
+		{
+			"name": "component-name",
+			"type": "component-type",
+			"tracked_vars": [{ "variable_name": "data_type" }],
+			"inherited_args": [{ "arg_name": "type" }],
+			"actions": ["action1", "action2"],
+			"helpers": ["helper1", "helper2"],
+			"modifiers": ["modifier1"],
+			"services": ["service1", "service2"]
+		}
+	]
+}
+```
 
-### thread-speed
-defined in number of times it should be faster or slower than base scroll speed of the story-line.<br>
-addressing scheme: x1, x2, x1.3, x0.3 for faster scroll speed, and rx2, rx1.2 for slower scroll speed. relative to story-line base scroll speed. x0 will result in a thread fixed on it's first frame.
+**Component Properties**:
 
-### components
-elements within a frame. story-lang covers:
-- placement of components
-- transitions, how each component loads and unloads
-- priority of display, which helps handling multiple screen sizes
-<br>
-<em><strong>note:</strong> story-lang does not have a vocabulary to define things inside components. typically that's something content brief and brand-guidelines have - things like heading text, description text, image, typography, letter-spacing and so on. we use bootstrap extensively, which gives a robust language for intra-component consistency.</em>
+- `name`: Kebab-case name of the component
+- `type`: Type from the built-in components list
+- `tracked_vars`: State variables tracked within the component
+- `inherited_args`: Arguments passed from parent components
+- `actions`: User interactions the component handles
+- `helpers`: Template helpers used within the component
+- `modifiers`: DOM modifiers applied to elements
+- `services`: Ember services injected into the component
 
-### timeline
-immersive experience within a component, like watching a video or drawing on a canvas.
+**Built-in Component Types**:
 
-### navs
-menus, navbars other navigation buttons are components. story-lang covers:
-- how navs unroll and roll-back, their animation and transition.
-- positioning them in the storyboard.
+- **Layout**: `table`, `figure`, `accordion`, `card`, `list-group`, `navbar`, `nav`, `tab`, `breadcrumb`
+- **Interactive**: `button`, `button-group`, `dropdown`, `modal`, `collapse`, `offcanvas`, `pagination`, `popover`, `tooltip`, `swiper-carousel`, `videojs-player`, `howlerjs-player`, `input-field`, `input-group`, `textarea`, `checkbox`, `radio`, `range`, `select`, `multi-select`, `date`, `file-uploader`, `alert`, `badge`, `toast`, `placeholder`, `progress`, `spinner`, `scrollspy`
 
-### cards
-a component used to describe a unit that encapsulates a restricted content experience, something that can package a single content piece and it's metadata. like a post, a tweet card or a swipe-story.
+**Example**:
 
-### addressing scheme
-parts of the addressing scheme have to be separated by hyphen.
-- component address: thread-frame-component:(x,y)
-- frame address: thread-frame.
-- thread address: thread:&lt;thread-speed&gt; // examples: T1:x2, T0:rx1.1, T0, rT1.
-- if thread is not defined, assume value T0.
-- if frame is not defined, assume value F0.
-- if thread-speed is not defined, assume value x1.
-<em>addressing scheme example: a fixed to top navbar component would be on address rT1:x0-F0-C0:(0,0).</em>
+```json
+{
+	"components": [
+		{
+			"name": "file-summary-card",
+			"type": "card",
+			"tracked_vars": [{ "isSelected": "bool" }, { "isExpanded": "bool" }],
+			"inherited_args": [
+				{ "file": "var" },
+				{ "onEdit": "fn" },
+				{ "onDelete": "fn" }
+			],
+			"actions": ["toggleSelection", "expandDetails", "editFile", "deleteFile"],
+			"helpers": ["formatDate", "truncateText"],
+			"modifiers": ["tooltip"],
+			"services": ["store", "router"]
+		}
+	]
+}
+```
+
+### 3. Routes
+
+**Purpose**: Defines the application's routes and their requirements.
+
+**Format**:
+
+```json
+{
+	"routes": [
+		{
+			"name": "route-name",
+			"tracked_vars": [{ "variable_name": "data_type" }],
+			"get_vars": [{ "param_name": "data_type" }],
+			"actions": ["action1", "action2"],
+			"helpers": ["helper1"],
+			"services": ["service1"],
+			"components": ["component1", "component2"],
+			"models": ["model1", "model2"]
+		}
+	]
+}
+```
+
+**Route Properties**:
+
+- `name`: The route name (matches Ember router)
+- `tracked_vars`: Route-level state variables
+- `get_vars`: URL query parameters and their types
+- `actions`: Route-level actions
+- `helpers`: Template helpers used in route templates
+- `services`: Services used by the route
+- `components`: Components rendered in this route
+- `models`: Data models loaded by this route
+
+**Example**:
+
+```json
+{
+	"routes": [
+		{
+			"name": "files",
+			"tracked_vars": [
+				{ "selectedFileType": "string" },
+				{ "sortOrder": "string" }
+			],
+			"get_vars": [
+				{ "page": "int" },
+				{ "search": "string" },
+				{ "filter": "string" }
+			],
+			"actions": ["filterFiles", "sortFiles", "searchFiles"],
+			"helpers": ["pluralize", "formatDate"],
+			"services": ["store", "router"],
+			"components": ["file-list", "file-filter", "search-box", "pagination"],
+			"models": ["json_file"]
+		}
+	]
+}
+```
+
+### 4. Services
+
+**Purpose**: Defines custom Ember services needed by the application.
+
+**Format**:
+
+```json
+{
+	"services": [
+		{
+			"name": "service-name",
+			"tracked_vars": [{ "variable_name": "data_type" }],
+			"actions": ["action1", "action2"],
+			"helpers": ["helper1"],
+			"services": ["dependency1", "dependency2"]
+		}
+	]
+}
+```
+
+**Service Properties**:
+
+- `name`: Service name
+- `tracked_vars`: Service-level tracked properties
+- `actions`: Methods provided by the service
+- `helpers`: Utility functions
+- `services`: Other services this service depends on
+
+**Built-in Services**:
+
+- `store`: Ember Data store for CRUD operations
+- `router`: Ember router service for navigation
+
+**Third-party npm packages pre-installed**:
+
+- `bootstrap`: Bootstrap CSS framework with Popper.js
+- `papaparse`: CSV parsing library
+- `sortablejs`: Drag-and-drop sorting
+- `swiperjs`: Touch slider/carousel
+- `videojs`: Video player
+- `howlerjs`: Audio player
+
+**Example**:
+
+```json
+{
+	"services": [
+		{
+			"name": "visualization-builder",
+			"tracked_vars": [
+				{ "currentVisualization": "object" },
+				{ "availableTypes": "array" }
+			],
+			"actions": [
+				"createVisualization",
+				"updateVisualization",
+				"deleteVisualization"
+			],
+			"helpers": ["validateConfig", "generatePreview"],
+			"services": ["store", "router"]
+		}
+	]
+}
+```
+
+## Data Types Reference
+
+### Common Data Types
+
+- `string`: Text values
+- `int`: Integer numbers
+- `bool`: Boolean true/false
+- `array`: List of items
+- `object`: Complex data structure
+- `var`: Variable (any type)
+- `fn`: Function reference
+
+### Argument Types
+
+- `var`: Passed data/state
+- `fn`: Callback function
+- `action`: User interaction handler
+
+## Integration with Other Files
+
+### With simplified-types.json
+
+- Model names used in routes should match type names from simplified-types.json
+- Component inherited_args often reference model data pulled from store, and/or their fields
+- Models are the gateway to persistent storage on the backend.
+
+## Best Practices
+
+**Always begin your thought process with routes → then move repeatable template route into components → then move your repeatable app-wide logic from components to services**
+
+1. **Start with Routes**: Match route names to user mental models and use consistent naming conventions
+2. **Minimize Route Logic**: Preferably fetch (read) model data in routes and then pass that data to components or services. Other than fetching model data, minimize the use of javascript in routes - Javascript is meant to be in components and services more than in routes
+3. **Route Parameters**: Keep get_vars minimal and meaningful, and load only necessary models for each route
+4. **Component Focus**: Keep components focused on single responsibilities and use descriptive, kebab-case names
+5. **Data Flow**: Receive backend data down from routes (via inherited_args) rather than fetching (reading) in components
+6. **Component Actions**: Non-read functions - create, update, delete - can all happen well at component-level
+7. **Service Integration**: Use services directly in components for app-wide logic
+8. **Service Architecture**: Keep services stateless when possible and use dependency injection for service composition
+9. **Service Role**: Services interact with both routes and components and store the core logic of the application
+
+## Tips for Manual Creation
+
+1. **Start with implementation_approach**: Write a clear use case first
+2. **Identify key user journeys**: Map these to routes
+3. **Break down UI into components**: Focus on reusability
+4. **Define data flow**: Ensure models align with your types.json
+5. **Plan service architecture**: Keep core application logic separate from UI logic
+6. **Validate interconnections**: Ensure all references match between files
+7. **Test component composition**: Verify components work together logically
