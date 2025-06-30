@@ -283,7 +283,7 @@ The storylang.json file contains four main sections:
 1. **Start with implementation_approach**: Write a clear use case first
 2. **Identify key user journeys**: Map these to routes
 3. **Break down UI into components**: Focus on reusability
-4. **Define data flow**: Ensure models align with your types.json
+4. **Define data flow**: Ensure models align with your simplified-types.json
 5. **Plan service architecture**: Keep core application logic separate from UI logic
 6. **Validate interconnections**: Ensure all references match between files
 7. **Test component composition**: Verify components work together logically
