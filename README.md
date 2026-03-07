@@ -1,3 +1,10 @@
+# ⚠️ Deprecated — Merged into ember-tribe
+
+This repository has been merged into [ember-tribe](https://github.com/tribe-framework/ember-tribe) and is no longer maintained here.
+
+Please use ember-tribe going forward:
+👉 https://github.com/tribe-framework/ember-tribe
+
 # What is Storylang?
 
 Storylang is a language that can be used for storyboarding user experiences. It brings precision and clarity to the collaborative process for people involved in UX design and frontend development.
